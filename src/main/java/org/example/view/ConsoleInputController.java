@@ -11,7 +11,8 @@ public class ConsoleInputController {
     }
 
     public static int readInt() {
-        return scanner.nextInt();
+        String intInput = scanner.nextLine().trim();
+        return Integer.parseInt(intInput);
     }
 
 }

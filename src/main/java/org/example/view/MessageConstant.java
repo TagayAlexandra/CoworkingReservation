@@ -8,7 +8,7 @@ public class MessageConstant {
             Select the action :
              1 - Log in as Admin\s
              2 - Log in as User.\s
-             3 - Exit.\s
+             0 - Exit.\s
              Please enter the corresponding number.""";
 
 
@@ -28,6 +28,7 @@ public class MessageConstant {
 
 
     public static final String WORKSPACE_ID = "Enter the workspace ID:";
+    public static final String BOOK_DETAIL_ID = "Enter the bookDetail ID:";
 
 
     public static final  String ENTER_BOOKING_DETAIL ="Enter booking details : Date and booking time. Example (13.08,15:00-16:00) ";

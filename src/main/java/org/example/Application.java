@@ -26,7 +26,7 @@ public class Application {
 
         int VALUE_FOR_ADMIN = 1;
         int VALUE_FOR_USER = 2;
-        int VALUE_FOR_EXIT = 3;
+        int VALUE_FOR_EXIT = 0;
 
         int userConsoleInput = MAX_VALUE;
 
