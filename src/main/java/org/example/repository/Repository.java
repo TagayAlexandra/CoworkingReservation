@@ -1,11 +1,14 @@
 package org.example.repository;
 
-public interface Repository <T> {
+import java.util.List;
+
+public interface Repository<T> {
 
     void create(T t);
-    T read(Long id);
 
-    void  update(T t);
+    void update(T t);
 
-    void  delete(Long id);
+    List<T> readAll();
+
+    void delete(Long id);
 }

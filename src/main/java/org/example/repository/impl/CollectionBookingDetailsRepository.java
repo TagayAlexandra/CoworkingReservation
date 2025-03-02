@@ -18,18 +18,16 @@ public class CollectionBookingDetailsRepository implements BookingDetailsReposit
     }
 
     @Override
-    public BookingDetail read(Long id) {
-        int index = getIndexById(id).orElseThrow();
-        return bookingDetailList.get(index);
-
-    }
-
-    @Override
     public void update(BookingDetail bookingDetail) {
         int index = getIndexById(bookingDetail.getId()).orElseThrow();
         bookingDetailList.set(index, bookingDetail);
 
 
+    }
+
+    @Override
+    public List<BookingDetail> readAll() {
+        return bookingDetailList;
     }
 
     @Override

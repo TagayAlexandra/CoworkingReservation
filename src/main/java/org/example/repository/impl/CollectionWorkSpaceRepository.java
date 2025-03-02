@@ -20,17 +20,17 @@ public class CollectionWorkSpaceRepository implements WorkSpaceRepository {
 
     }
 
-    @Override
-    public WorkSpace read(Long id) {
-        int index = getIndexById(id).orElseThrow();
-        return workSpaceList.get(index);
-    }
 
     @Override
     public void update(WorkSpace workSpace) {
         int index = getIndexById(workSpace.getId()).orElseThrow();
         workSpaceList.set(index, workSpace);
 
+    }
+
+    @Override
+    public List<WorkSpace> readAll() {
+        return workSpaceList;
     }
 
     @Override
