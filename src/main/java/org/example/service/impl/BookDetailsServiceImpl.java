@@ -2,13 +2,14 @@ package org.example.service.impl;
 
 import org.example.entity.BookingDetail;
 import org.example.repository.Repository;
+import org.example.service.BookDetailsService;
 import org.example.service.Service;
 
-public class BookDetailsService implements Service<BookingDetail> {
+public class BookDetailsServiceImpl implements BookDetailsService {
 
     private final Repository<BookingDetail> repository;
 
-    public BookDetailsService(Repository<BookingDetail> repository) {
+    public BookDetailsServiceImpl(Repository<BookingDetail> repository) {
         this.repository = repository;
     }
 
@@ -19,8 +20,8 @@ public class BookDetailsService implements Service<BookingDetail> {
     }
 
     @Override
-    public BookingDetail read(Long id) {
-        return repository.read(id);
+    public BookingDetail readById(Long id) {
+        return repository.readById(id);
     }
 
     @Override
@@ -29,7 +30,6 @@ public class BookDetailsService implements Service<BookingDetail> {
 
 
     }
-
     @Override
     public void delete(Long id) {
         repository.delete(id);
