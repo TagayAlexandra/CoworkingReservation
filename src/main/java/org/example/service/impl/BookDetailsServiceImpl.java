@@ -3,7 +3,6 @@ package org.example.service.impl;
 import org.example.entity.BookingDetail;
 import org.example.repository.Repository;
 import org.example.service.BookDetailsService;
-import org.example.service.Service;
 
 public class BookDetailsServiceImpl implements BookDetailsService {
 
@@ -21,7 +20,7 @@ public class BookDetailsServiceImpl implements BookDetailsService {
 
     @Override
     public BookingDetail readById(Long id) {
-        return repository.readById(id);
+        return repository.readAll().stream().filter(el -> el.getId().equals(id)).findFirst().orElseThrow();
     }
 
     @Override
@@ -30,6 +29,7 @@ public class BookDetailsServiceImpl implements BookDetailsService {
 
 
     }
+
     @Override
     public void delete(Long id) {
         repository.delete(id);
