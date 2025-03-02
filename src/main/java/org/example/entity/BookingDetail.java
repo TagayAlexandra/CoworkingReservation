@@ -2,14 +2,15 @@ package org.example.entity;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Objects;
 
 public class BookingDetail {
     private Long id;
     private LocalDate date;
 
-    private LocalDateTime startTime;
-    private LocalDateTime endTime;
+    private LocalTime startTime;
+    private LocalTime endTime;
 
     private Long workSpaceId;
 
@@ -19,7 +20,7 @@ public class BookingDetail {
     public BookingDetail() {
     }
 
-    public BookingDetail(Long id, LocalDate date, LocalDateTime startTime, LocalDateTime endTime, Long workSpaceId, String owner) {
+    public BookingDetail(Long id, LocalDate date, LocalTime startTime, LocalTime endTime, Long workSpaceId, String owner) {
         this.id = id;
         this.date = date;
         this.startTime = startTime;
@@ -44,19 +45,19 @@ public class BookingDetail {
         this.date = date;
     }
 
-    public LocalDateTime getStartTime() {
+    public LocalTime getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(LocalDateTime startTime) {
+    public void setStartTime(LocalTime startTime) {
         this.startTime = startTime;
     }
 
-    public LocalDateTime getEndTime() {
+    public LocalTime getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(LocalDateTime endTime) {
+    public void setEndTime(LocalTime endTime) {
         this.endTime = endTime;
     }
 
