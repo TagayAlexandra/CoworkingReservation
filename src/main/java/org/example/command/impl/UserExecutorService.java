@@ -11,6 +11,9 @@ public class UserExecutorService implements CommandExecutorService {
 
     public UserExecutorService() {
         userCommand.put(1,new AvailableWorkSpaceCommandRead());
+        userCommand.put(2,new ReserveWorkSpaceCommand());
+        userCommand.put(3,new CancelReservationCommand());
+        userCommand.put(4,new BookedWorkSpaceCommandRead());
 
     }
 

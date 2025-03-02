@@ -13,6 +13,7 @@ public class AdminExecutorService implements CommandExecutorService {
     public AdminExecutorService() {
         adminCommand.put(1,new WorkSpaceCommandCreate());
         adminCommand.put(2,new WorkSpaceCommandDelete());
+        adminCommand.put(3,new BookedWorkSpaceCommandRead());
     }
 
     @Override
