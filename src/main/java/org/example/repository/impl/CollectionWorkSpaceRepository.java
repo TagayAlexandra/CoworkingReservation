@@ -1,7 +1,9 @@
 package org.example.repository.impl;
 
 import org.example.entity.WorkSpace;
+import org.example.exeption.DataNotFoundException;
 import org.example.repository.WorkSpaceRepository;
+import org.example.view.MessageConstant;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,8 +24,8 @@ public class CollectionWorkSpaceRepository implements WorkSpaceRepository {
 
 
     @Override
-    public void update(WorkSpace workSpace) {
-        int index = getIndexById(workSpace.getId()).orElseThrow();
+    public void update(WorkSpace workSpace) throws DataNotFoundException {
+        int index = getIndexById(workSpace.getId()).orElseThrow(() -> new DataNotFoundException(MessageConstant.DATA_NOT_FOUND));
         workSpaceList.set(index, workSpace);
 
     }
@@ -34,8 +36,8 @@ public class CollectionWorkSpaceRepository implements WorkSpaceRepository {
     }
 
     @Override
-    public void delete(Long id) {
-        int index = getIndexById(id).orElseThrow();
+    public void delete(Long id) throws DataNotFoundException {
+        int index = getIndexById(id).orElseThrow(() -> new DataNotFoundException(MessageConstant.DATA_NOT_FOUND));
         workSpaceList.remove(index);
 
     }

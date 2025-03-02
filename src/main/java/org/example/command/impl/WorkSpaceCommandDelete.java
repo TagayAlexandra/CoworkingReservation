@@ -1,6 +1,7 @@
 package org.example.command.impl;
 
 import org.example.command.Command;
+import org.example.exeption.DataNotFoundException;
 import org.example.repository.impl.CollectionWorkSpaceRepository;
 import org.example.service.WorkSpaceService;
 import org.example.service.impl.WorkSpaceServiceImpl;
@@ -10,6 +11,10 @@ public class WorkSpaceCommandDelete implements Command {
     @Override
     public void execute() {
         Long id = 1L;
-        workSpaceService.delete(id);
+        try {
+            workSpaceService.delete(id);
+        } catch (DataNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

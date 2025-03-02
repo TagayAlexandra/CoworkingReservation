@@ -1,8 +1,10 @@
 package org.example.service.impl;
 
 import org.example.entity.BookingDetail;
+import org.example.exeption.DataNotFoundException;
 import org.example.repository.Repository;
 import org.example.service.BookDetailsService;
+import org.example.view.MessageConstant;
 
 public class BookDetailsServiceImpl implements BookDetailsService {
 
@@ -19,19 +21,22 @@ public class BookDetailsServiceImpl implements BookDetailsService {
     }
 
     @Override
-    public BookingDetail readById(Long id) {
-        return repository.readAll().stream().filter(el -> el.getId().equals(id)).findFirst().orElseThrow();
+    public BookingDetail readById(Long id) throws DataNotFoundException {
+        return repository.readAll().stream()
+                .filter(el -> el.getId().equals(id))
+                .findFirst()
+                .orElseThrow(() -> new DataNotFoundException(MessageConstant.DATA_NOT_FOUND));
     }
 
     @Override
-    public void update(BookingDetail bookingDetail) {
+    public void update(BookingDetail bookingDetail) throws DataNotFoundException {
         repository.update(bookingDetail);
 
 
     }
 
     @Override
-    public void delete(Long id) {
+    public void delete(Long id) throws DataNotFoundException {
         repository.delete(id);
 
     }

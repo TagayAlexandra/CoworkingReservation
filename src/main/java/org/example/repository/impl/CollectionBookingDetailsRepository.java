@@ -1,7 +1,9 @@
 package org.example.repository.impl;
 
 import org.example.entity.BookingDetail;
+import org.example.exeption.DataNotFoundException;
 import org.example.repository.BookingDetailsRepository;
+import org.example.view.MessageConstant;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,8 +20,9 @@ public class CollectionBookingDetailsRepository implements BookingDetailsReposit
     }
 
     @Override
-    public void update(BookingDetail bookingDetail) {
-        int index = getIndexById(bookingDetail.getId()).orElseThrow();
+    public void update(BookingDetail bookingDetail) throws DataNotFoundException {
+        int index = getIndexById(bookingDetail.getId())
+                .orElseThrow(() -> new DataNotFoundException(MessageConstant.DATA_NOT_FOUND));
         bookingDetailList.set(index, bookingDetail);
 
 
@@ -31,8 +34,9 @@ public class CollectionBookingDetailsRepository implements BookingDetailsReposit
     }
 
     @Override
-    public void delete(Long id) {
-        int index = getIndexById(id).orElseThrow();
+    public void delete(Long id) throws DataNotFoundException {
+        int index = getIndexById(id)
+                .orElseThrow(() -> new DataNotFoundException(MessageConstant.DATA_NOT_FOUND));
         bookingDetailList.remove(index);
     }
 
