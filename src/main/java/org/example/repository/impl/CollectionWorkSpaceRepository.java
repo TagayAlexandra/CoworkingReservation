@@ -10,9 +10,18 @@ import java.util.Optional;
 
 public class CollectionWorkSpaceRepository implements WorkSpaceRepository {
 
-
+    private static CollectionWorkSpaceRepository collectionWorkSpaceRepository;
     private final List<WorkSpace> workSpaceList = new ArrayList<>();
 
+    private CollectionWorkSpaceRepository() {
+    }
+
+    public static CollectionWorkSpaceRepository getInstance() {
+        if (collectionWorkSpaceRepository == null) {
+            collectionWorkSpaceRepository = new CollectionWorkSpaceRepository();
+        }
+        return collectionWorkSpaceRepository;
+    }
 
     @Override
     public void create(WorkSpace workSpace) {

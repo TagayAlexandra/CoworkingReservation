@@ -9,7 +9,19 @@ import java.util.Optional;
 
 public class CollectionBookingDetailsRepository implements BookingDetailsRepository {
 
+    private static CollectionBookingDetailsRepository collectionBookingDetailsRepository;
     private final List<BookingDetail> bookingDetailList = new ArrayList<>();
+
+
+    private CollectionBookingDetailsRepository() {
+    }
+
+    public static CollectionBookingDetailsRepository getInstance() {
+        if (collectionBookingDetailsRepository == null) {
+            collectionBookingDetailsRepository = new CollectionBookingDetailsRepository();
+        }
+        return collectionBookingDetailsRepository;
+    }
 
     @Override
     public void create(BookingDetail bookingDetail) {
